@@ -1,0 +1,7 @@
+FROM dojo_doc_code
+
+ADD Makefile Makefile
+RUN make rstwiki_build
+EXPOSE 4200
+EXPOSE 8000
+

@@ -1,0 +1,10 @@
+FROM dojo_doc_wiki
+
+ADD dapi_config dapi_config
+ADD Makefile Makefile
+RUN make doc1.9
+RUN make doc1.10
+EXPOSE 3000
+RUN make dapilib
+ADD dapi_config/dapiconfig.js dapi/config.js
+RUN cd dapi;npm update

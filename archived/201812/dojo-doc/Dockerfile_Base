@@ -1,0 +1,19 @@
+FROM ubuntu:15.10
+
+MAINTAINER yashen@gmail.com
+
+RUN apt-get update
+RUN apt-get install nodejs -y
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN apt-get install vim -y
+RUN apt-get install npm -y
+RUN npm update
+RUN npm install express
+RUN npm install jade
+RUN apt-get install python2.7 -y
+RUN apt-get install python-pip -y
+RUN apt-get install default-jre -y
+RUN apt-get install git -y
+RUN pip install cheetah cherrypy docutils pygments
+RUN apt-get install Make -y
+RUN apt-get install supervisor -y

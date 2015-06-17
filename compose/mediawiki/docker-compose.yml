@@ -1,0 +1,30 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.5.52
+    environment:
+     - MYSQL_ROOT_PASSWORD=password
+     - MYSQL_DATABASE=mediawiki
+    volumes:
+     - /dockerdatas/mediawiki/volumes/mysql:/var/lib/mysql
+  admin:
+    image: phpmyadmin/phpmyadmin
+    links:
+    - db:db
+    ports:
+    - 8081:80
+  web:
+    image: benhutchins/mediawiki
+    links:
+      - db:mysql
+    ports:
+      - 80:80
+    depends_on:
+     - db
+    environment:
+     - MEDIAWIKI_DB_USER=root
+     - MEDIAWIKI_DB_PASSWORD=password
+     - MEDIAWIKI_DB_HOST=mysql:3306
+    volumes:
+     - /dockerdatas/mediawiki/volumes/data:/data:rw
+

@@ -1,0 +1,14 @@
+FROM dojo_doc_base
+
+RUN mkdir /dojo
+WORKDIR /dojo
+RUN git clone https://github.com/dojo/dojo.git 
+RUN git clone https://github.com/dojo/dijit.git
+RUN git clone https://github.com/dojo/dojox.git
+RUN git clone https://github.com/dojo/util.git
+RUN git clone https://github.com/dojo/demos.git
+RUN git clone https://github.com/dojo/docs.git
+RUN git clone --recursive https://github.com/lbod/dapi.git
+RUN git clone --recursive https://github.com/wkeese/js-doc-parse.git
+RUN git clone https://github.com/phiggins42/rstwiki.git
+

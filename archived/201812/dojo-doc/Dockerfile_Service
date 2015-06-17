@@ -1,0 +1,5 @@
+FROM dojo_doc_dapi
+
+ADD Makefile Makefile
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf && /bin/bash
